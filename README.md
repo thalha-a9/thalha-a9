@@ -17,7 +17,7 @@
 
 I'm **Thalha Ahmed** — a developer and security researcher. I build **high-performance, local-first CLI tools, automation scripts, and advanced OSINT frameworks.**
 
-My work sits where reconnaissance meets engineering: asynchronous OSINT frameworks, network security tooling, and the automation that ties them together. All of it is built around a single constraint — **an answer you can't trust is worse than no answer** — so verification is a stage in the pipeline, not a disclaimer in the README.
+My work sits where reconnaissance meets engineering: asynchronous OSINT frameworks, network security tooling, and the automation that ties them together — all of it **built to eliminate false positives**.
 
 <div align="center">
   <img src="assets/code.svg" alt="helix --map-identity --deep — resolving surfaces, extracting bio-linked profiles, verifying via native email checks, identity graph resolved with zero false positives" width="100%">
@@ -31,7 +31,7 @@ My work sits where reconnaissance meets engineering: asynchronous OSINT framewor
 
 > An asynchronous OSINT identity mapping engine that tracks digital footprints across platforms, extracts bio-linked profiles, and correlates targets with native email verification.
 
-**The problem.** Most username-enumeration tooling optimises for coverage and pays for it in noise — a wall of "hits" a human then has to disprove by hand. That isn't intelligence, it's homework.
+**The problem.** Most username-enumeration tooling optimises for coverage and pays for it in noise — a wall of "hits" you then have to disprove by hand.
 
 **The approach.** Helix treats verification as a first-class stage rather than post-processing. Surfaces resolve concurrently, bio-linked profiles are extracted and cross-referenced, and native email verification confirms or rejects each correlation *before* it reaches the report.
 
@@ -86,7 +86,7 @@ My work sits where reconnaissance meets engineering: asynchronous OSINT framewor
 
 **Local-first.** Tools run on your machine. No mandatory cloud round-trip, no telemetry, no third-party service that can rate-limit you mid-engagement or quietly log your targets.
 
-**Verified output, or none.** A confident wrong answer costs more than a missing one. Verification is a pipeline stage, not a footnote.
+**Verified output, or none.** Verification runs in-pipeline and rejected candidates are dropped before they reach you — built to eliminate false positives, not to hand you a list to disprove.
 
 **Async where it counts.** Reconnaissance is I/O-bound. Concurrency is the difference between a tool you use and a tool you wait for.
 
