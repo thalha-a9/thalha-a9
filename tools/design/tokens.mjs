@@ -21,7 +21,7 @@ export const radius = { card: 18, tile: 12, pill: 999 };
 
 /** Type ramp — sizes, weights and tracking, in one place. */
 export const type = {
-  display: { size: 92, weight: 700, tracking: -3.4 },
+  display: { size: 84, weight: 700, tracking: -3.1 },
   title: { size: 19, weight: 700, tracking: -0.4 },
   lead: { size: 18, weight: 400, tracking: -0.1 },
   body: { size: 12.5, weight: 400, tracking: 0 },

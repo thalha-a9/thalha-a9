@@ -93,12 +93,13 @@ const constellation = clusters.map((c) => {
   `<circle cx="${n(m.x)}" cy="${n(m.y)}" r="${m.r}" fill="#FFFFFF" fill-opacity="${m.o}"/>`).join('') + '</g>';
 
 // ── type ─────────────────────────────────────────────────────────────────
+const NAME = 'Thalha Ahmed';
 const EYEBROW = 'SECURITY RESEARCH  ·  TOOL ENGINEERING';
 const LEAD = 'I build local-first security tooling that returns answers you can verify.';
 const PILLS = ['Network Security', 'OSINT', 'Penetration Testing', 'Automation'];
 
 const eyebrow = textPath(EYEBROW, { ...type.label, size: 12.5, x: X + 18, y: 87 });
-const name = textPath('Thalha', { ...type.display, x: X, y: 184 });
+const name = textPath(NAME, { ...type.display, x: X, y: 184 });
 const lead = textPath(LEAD, { ...type.lead, x: X, y: 222 });
 
 let px = X;
@@ -112,8 +113,8 @@ const pills = PILLS.map((label) => {
 }).join('\n      ');
 
 // ── document ─────────────────────────────────────────────────────────────
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Thalha — security researcher and tool engineer. ${LEAD}">
-  <title>Thalha — Security research &amp; tool engineering</title>
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${NAME} — security researcher and tool engineer. ${LEAD}">
+  <title>${NAME} — Security research &amp; tool engineering</title>
   <desc>${LEAD}</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0.55" y2="1">
@@ -194,4 +195,5 @@ const nodes = clusters.reduce((a, c) => a + c.nodes.length, 0);
 const links = clusters.reduce((a, c) => a + c.links.length, 0);
 console.log(`assets/hero.svg  ${(svg.length / 1024).toFixed(1)} KB`);
 console.log(`  constellation: ${nodes} nodes, ${links} links across ${CLUSTERS} drifting clusters`);
+if (X + name.width > SAFE.x1) throw new Error(`wordmark overruns the safe zone: ${n(X + name.width)} > ${SAFE.x1}`);
 console.log(`  wordmark ${n(name.width)}px, lead ${n(lead.width)}px, pills end at ${n(px - 10)}px of ${W}`);

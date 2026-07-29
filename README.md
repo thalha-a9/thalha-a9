@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/hero.svg" alt="Thalha — security researcher and tool engineer. I build local-first security tooling that returns answers you can verify." width="100%">
+  <img src="assets/hero.svg" alt="Thalha Ahmed — security researcher and tool engineer. I build local-first security tooling that returns answers you can verify." width="100%">
 </div>
 
 <p align="center">
@@ -15,7 +15,7 @@
 
 ## About
 
-I'm **Thalha** — a developer and security researcher. I build **security tooling that runs locally, finishes fast, and doesn't lie to you.**
+I'm **Thalha Ahmed** — a developer and security researcher. I build **security tooling that runs locally, finishes fast, and doesn't lie to you.**
 
 My work sits where reconnaissance meets engineering: asynchronous OSINT frameworks, network security tooling, and the automation that ties them together. All of it is built around a single constraint — **an answer you can't trust is worse than no answer** — so verification is a stage in the pipeline, not a disclaimer in the README.
 
