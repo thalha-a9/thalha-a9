@@ -1,0 +1,20 @@
+{
+  "name": "profile-studio",
+  "private": true,
+  "type": "module",
+  "description": "Generates every graphic in ../assets. Run `npm install && npm run build`.",
+  "scripts": {
+    "fonts": "node build-fonts.mjs",
+    "cards": "node gen-cards.mjs",
+    "ui": "node gen-ui.mjs",
+    "hero": "node render-hero.mjs",
+    "build": "npm run fonts && npm run cards && npm run ui && npm run hero"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.0.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "opentype.js": "^1.3.4",
+    "puppeteer-core": "^23.0.0",
+    "wawoff2": "^2.0.1"
+  }
+}
