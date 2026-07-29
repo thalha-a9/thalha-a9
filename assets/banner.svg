@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-label="Thalha — Network Security and Penetration Testing">
+  <title>THALHA // Network Security :: Penetration Testing</title>
+  <defs>
+    <linearGradient id="bgg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#04080a"/>
+      <stop offset="0.5" stop-color="#071820"/>
+      <stop offset="1" stop-color="#04080a"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#00ff9c" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#00ff9c" fill-opacity="0.05"/>
+    </pattern>
+    <radialGradient id="sweep">
+      <stop offset="0" stop-color="#00ff9c" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#00ff9c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#04080a" stop-opacity="0.93"/>
+      <stop offset="0.55" stop-color="#04080a" stop-opacity="0.78"/>
+      <stop offset="1" stop-color="#04080a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="barg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00ff9c" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#00ff9c" stop-opacity="1"/>
+      <stop offset="1" stop-color="#00ff9c" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="frame"><rect x="0" y="0" width="1200" height="320" rx="10"/></clipPath>
+    <style>
+      .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+      .drift { animation: drift 12s linear infinite; }
+      @keyframes drift { from { transform: translate(0,0); } to { transform: translate(40px,40px); } }
+      .scanmove { animation: scanmove 8s linear infinite; }
+      @keyframes scanmove { from { transform: translateY(-320px); } to { transform: translateY(0); } }
+      .gA { animation: gA 3.2s steps(1) infinite; }
+      .gB { animation: gB 3.2s steps(1) infinite; }
+      @keyframes gA {
+        0%,88% { transform: translate(0,0); opacity: 0; }
+        89% { transform: translate(-4px,2px); opacity: .85; }
+        91% { transform: translate(3px,-2px); opacity: .7; }
+        93% { transform: translate(-2px,1px); opacity: .8; }
+        95%,100% { transform: translate(0,0); opacity: 0; }
+      }
+      @keyframes gB {
+        0%,88% { transform: translate(0,0); opacity: 0; }
+        90% { transform: translate(4px,-2px); opacity: .8; }
+        92% { transform: translate(-3px,2px); opacity: .65; }
+        94% { transform: translate(2px,-1px); opacity: .75; }
+        96%,100% { transform: translate(0,0); opacity: 0; }
+      }
+      .flick { animation: flick 3.2s steps(1) infinite; }
+      @keyframes flick { 0%,88%,96%,100% { opacity:1 } 90% { opacity:.55 } 92% { opacity:.9 } 94% { opacity:.6 } }
+      .beat { animation: beat 1.6s ease-in-out infinite; }
+      @keyframes beat { 0%,100% { opacity:.25 } 50% { opacity:1 } }
+      .lnk { stroke:#00ff9c; stroke-opacity:.22; stroke-width:1; }
+      .nd  { fill:#04080a; stroke:#00ff9c; stroke-width:1.4; }
+    </style>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="320" fill="url(#bgg)"/>
+    <g class="drift"><rect x="-40" y="-40" width="1280" height="400" fill="url(#grid)"/></g>
+    <g class="scanmove"><rect x="0" y="0" width="1200" height="640" fill="url(#scan)"/></g>
+
+    <!-- ── network topology ── -->
+    <g opacity="0.75">
+      <path class="lnk" d="M60 190 L150 78"/>
+      <path class="lnk" d="M150 78 L286 152"/>
+      <path class="lnk" d="M286 152 L196 258"/>
+      <path class="lnk" d="M286 152 L430 92"/>
+      <path class="lnk" d="M430 92 L560 232"/>
+      <path class="lnk" d="M560 232 L716 140"/>
+      <path class="lnk" d="M716 140 L864 246"/>
+      <path class="lnk" d="M864 246 L1010 104"/>
+      <path class="lnk" d="M1010 104 L1136 196"/>
+      <path class="lnk" d="M196 258 L560 232"/>
+      <path class="lnk" d="M430 92 L716 140"/>
+
+      <g fill="#00ff9c">
+        <circle cx="60"   cy="190" r="3.2"/><circle cx="150"  cy="78"  r="3.2"/>
+        <circle cx="286"  cy="152" r="3.2"/><circle cx="196"  cy="258" r="3.2"/>
+        <circle cx="430"  cy="92"  r="3.2"/><circle cx="560"  cy="232" r="3.2"/>
+        <circle cx="716"  cy="140" r="3.2"/><circle cx="864"  cy="246" r="3.2"/>
+        <circle cx="1010" cy="104" r="3.2"/><circle cx="1136" cy="196" r="3.2"/>
+      </g>
+
+      <!-- pulsing host rings -->
+      <circle cx="286" cy="152" r="4" fill="none" stroke="#00ff9c" stroke-width="1.2">
+        <animate attributeName="r" values="4;22" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-opacity" values="0.9;0" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="864" cy="246" r="4" fill="none" stroke="#00e5ff" stroke-width="1.2">
+        <animate attributeName="r" values="4;20" dur="3s" begin="1s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-opacity" values="0.9;0" dur="3s" begin="1s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="1010" cy="104" r="4" fill="none" stroke="#ff2e63" stroke-width="1.2">
+        <animate attributeName="r" values="4;18" dur="3s" begin="2s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-opacity" values="0.9;0" dur="3s" begin="2s" repeatCount="indefinite"/>
+      </circle>
+
+      <!-- packets in flight -->
+      <circle r="2.6" fill="#00ff9c" filter="url(#softglow)">
+        <animateMotion dur="3.4s" repeatCount="indefinite" path="M60 190 L150 78 L286 152 L430 92 L716 140"/>
+      </circle>
+      <circle r="2.6" fill="#00e5ff" filter="url(#softglow)">
+        <animateMotion dur="4.2s" begin="0.6s" repeatCount="indefinite" path="M196 258 L560 232 L716 140 L864 246"/>
+      </circle>
+      <circle r="2.6" fill="#ff2e63" filter="url(#softglow)">
+        <animateMotion dur="3.8s" begin="1.4s" repeatCount="indefinite" path="M864 246 L1010 104 L1136 196"/>
+      </circle>
+      <circle r="2.2" fill="#00ff9c" filter="url(#softglow)">
+        <animateMotion dur="5s" begin="2.2s" repeatCount="indefinite" path="M430 92 L560 232 L196 258"/>
+      </circle>
+    </g>
+
+    <!-- ── radar ── -->
+    <g transform="translate(1082,86)" opacity="0.9">
+      <circle r="52" fill="none" stroke="#00ff9c" stroke-opacity=".18"/>
+      <circle r="34" fill="none" stroke="#00ff9c" stroke-opacity=".18"/>
+      <circle r="16" fill="none" stroke="#00ff9c" stroke-opacity=".18"/>
+      <path d="M-52 0H52M0 -52V52" stroke="#00ff9c" stroke-opacity=".14"/>
+      <g>
+        <path d="M0 0 L52 -20 A52 52 0 0 1 52 20 Z" fill="url(#sweep)"/>
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="3.6s" repeatCount="indefinite"/>
+      </g>
+      <circle cx="26" cy="-14" r="2" fill="#00ff9c"><animate attributeName="opacity" values="0;1;0" dur="3.6s" repeatCount="indefinite"/></circle>
+      <circle cx="-30" cy="18" r="2" fill="#ff2e63"><animate attributeName="opacity" values="0;1;0" dur="3.6s" begin="1.6s" repeatCount="indefinite"/></circle>
+    </g>
+
+    <!-- ── text backdrop ── -->
+    <ellipse cx="600" cy="180" rx="520" ry="130" fill="url(#vig)"/>
+
+    <!-- ── title ── -->
+    <g class="mono" text-anchor="middle">
+      <text class="gA" x="600" y="176" font-size="86" font-weight="700" letter-spacing="14" fill="#ff2e63">THALHA</text>
+      <text class="gB" x="600" y="176" font-size="86" font-weight="700" letter-spacing="14" fill="#00e5ff">THALHA</text>
+      <text class="flick" x="600" y="176" font-size="86" font-weight="700" letter-spacing="14" fill="#00ff9c" filter="url(#glow)">THALHA</text>
+
+      <text x="600" y="212" font-size="14" letter-spacing="6" fill="#7dffd0" fill-opacity=".85">
+        NETWORK SECURITY &#160;::&#160; PENETRATION TESTING &#160;::&#160; OSINT ENGINEERING
+      </text>
+      <text x="600" y="240" font-size="12.5" letter-spacing="2" fill="#6fae97">
+        [ async python ] [ local-first cli ] [ zero false positives ]
+      </text>
+    </g>
+
+    <!-- ── top status ── -->
+    <g class="mono" font-size="12" fill="#00ff9c" fill-opacity=".7">
+      <text x="24" y="30">root@thalha:~#</text>
+      <rect x="126" y="20" width="7" height="12" fill="#00ff9c">
+        <animate attributeName="opacity" values="1;0" dur="1s" calcMode="discrete" repeatCount="indefinite"/>
+      </rect>
+    </g>
+
+    <!-- ── bottom hud ── -->
+    <g class="mono">
+      <rect x="0" y="286" width="1200" height="34" fill="#000" fill-opacity=".45"/>
+      <line x1="0" y1="286" x2="1200" y2="286" stroke="#00ff9c" stroke-opacity=".28"/>
+      <circle cx="26" cy="303" r="4" fill="#00ff9c" class="beat"/>
+      <text x="40" y="307" font-size="11.5" letter-spacing="2" fill="#00ff9c" fill-opacity=".8">LINK:UP</text>
+      <text x="124" y="307" font-size="11.5" letter-spacing="2" fill="#00ff9c" fill-opacity=".55">IFACE:eth0</text>
+      <text x="232" y="307" font-size="11.5" letter-spacing="2" fill="#00ff9c" fill-opacity=".55">MODE:MONITOR</text>
+      <text x="374" y="307" font-size="11.5" letter-spacing="2" fill="#00ff9c" fill-opacity=".55">TLS:1.3</text>
+      <text x="1176" y="307" font-size="11.5" letter-spacing="2" fill="#00ff9c" fill-opacity=".55" text-anchor="end">STATUS: OPERATIONAL</text>
+      <rect x="470" y="301" width="180" height="3" fill="url(#barg)">
+        <animate attributeName="x" values="470;1000;470" dur="6s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+
+    <rect x="0.5" y="0.5" width="1199" height="319" rx="10" fill="none" stroke="#00ff9c" stroke-opacity=".3"/>
+  </g>
+</svg>
