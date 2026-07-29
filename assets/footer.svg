@@ -25,6 +25,7 @@
       @keyframes fall{from{transform:translateY(0)}to{transform:translateY(430px)}}
       .bl{animation:bl2 1.1s steps(1) infinite}
       @keyframes bl2{0%,50%{opacity:1}51%,100%{opacity:0}}
+      @media (prefers-reduced-motion: reduce){ .rain, .bl { animation: none !important; } }
     </style>
   </defs>
 
