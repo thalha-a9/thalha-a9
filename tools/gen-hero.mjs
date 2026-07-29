@@ -18,7 +18,7 @@ import fs from 'node:fs';
 import { textPath, textWidth } from './design/type.mjs';
 import { color, accent, type, white } from './design/tokens.mjs';
 
-const W = 1200, H = 340, R = 18;
+const W = 1200, H = 360, R = 18;
 const X = 64;
 const OUT = new URL('../assets/hero.svg', import.meta.url);
 
@@ -34,7 +34,7 @@ const n = (v) => Number(v.toFixed(1));
 // sampled against the text safe zone rather than trusted to land well.
 const CLUSTERS = 5;
 const LINK_DIST = 98;
-const SAFE = { x0: 0, y0: 42, x1: 672, y1: 300 };   // keep clear of the type
+const SAFE = { x0: 0, y0: 42, x1: 672, y1: 318 };   // keep clear of the type
 const inSafe = (x, y) => x > SAFE.x0 && x < SAFE.x1 && y > SAFE.y0 && y < SAFE.y1;
 const clusters = [];
 
@@ -94,28 +94,31 @@ const constellation = clusters.map((c) => {
 
 // ── type ─────────────────────────────────────────────────────────────────
 const NAME = 'Thalha Ahmed';
-const EYEBROW = 'SECURITY RESEARCH  ·  TOOL ENGINEERING';
-const LEAD = 'I build local-first security tooling that returns answers you can verify.';
+const EYEBROW = 'DEVELOPER  ·  SECURITY RESEARCHER';
+const LEAD = [
+  'I build high-performance, local-first CLI tools,',
+  'automation scripts, and advanced OSINT frameworks.',
+];
 const PILLS = ['Network Security', 'OSINT', 'Penetration Testing', 'Automation'];
 
-const eyebrow = textPath(EYEBROW, { ...type.label, size: 12.5, x: X + 18, y: 87 });
-const name = textPath(NAME, { ...type.display, x: X, y: 184 });
-const lead = textPath(LEAD, { ...type.lead, x: X, y: 222 });
+const eyebrow = textPath(EYEBROW, { ...type.label, size: 12.5, x: X + 18, y: 90 });
+const name = textPath(NAME, { ...type.display, x: X, y: 190 });
+const lead = LEAD.map((line, i) => textPath(line, { ...type.lead, x: X, y: 228 + i * 24 }));
 
 let px = X;
 const pills = PILLS.map((label) => {
   const tw = textWidth(label, type.pill);
   const w = n(tw + 30);
-  const g = `<g><rect x="${n(px)}" y="246" width="${w}" height="32" rx="16" fill="${white(0.04)}" stroke="${white(0.1)}"/>` +
-            `<path d="${textPath(label, { ...type.pill, x: px + 15, y: 266 }).d}" fill="${color.text2}"/></g>`;
+  const g = `<g><rect x="${n(px)}" y="278" width="${w}" height="32" rx="16" fill="${white(0.04)}" stroke="${white(0.1)}"/>` +
+            `<path d="${textPath(label, { ...type.pill, x: px + 15, y: 298 }).d}" fill="${color.text2}"/></g>`;
   px += w + 10;
   return g;
 }).join('\n      ');
 
 // ── document ─────────────────────────────────────────────────────────────
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${NAME} — security researcher and tool engineer. ${LEAD}">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${NAME} — developer and security researcher. ${LEAD.join(' ')}">
   <title>${NAME} — Security research &amp; tool engineering</title>
-  <desc>${LEAD}</desc>
+  <desc>${LEAD.join(' ')}</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0.55" y2="1">
       <stop offset="0" stop-color="#0A0C0F"/><stop offset="1" stop-color="${color.bg}"/>
@@ -178,10 +181,10 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
 
     <rect width="${W}" height="${H}" fill="url(#vig)"/>
 
-    <circle class="pulse" cx="${X + 4}" cy="82" r="3.5" fill="${accent.emerald}"/>
+    <circle class="pulse" cx="${X + 4}" cy="85" r="3.5" fill="${accent.emerald}"/>
     <path d="${eyebrow.d}" fill="#8A94A2"/>
     <path d="${name.d}" fill="url(#shine)"/>
-    <path d="${lead.d}" fill="${color.text2}"/>
+    ${lead.map((l) => `<path d="${l.d}" fill="${color.text2}"/>`).join('\n    ')}
     ${pills}
 
     <rect width="${W}" height="${H}" filter="url(#grain)" opacity="0.05" style="mix-blend-mode:overlay"/>
@@ -196,4 +199,4 @@ const links = clusters.reduce((a, c) => a + c.links.length, 0);
 console.log(`assets/hero.svg  ${(svg.length / 1024).toFixed(1)} KB`);
 console.log(`  constellation: ${nodes} nodes, ${links} links across ${CLUSTERS} drifting clusters`);
 if (X + name.width > SAFE.x1) throw new Error(`wordmark overruns the safe zone: ${n(X + name.width)} > ${SAFE.x1}`);
-console.log(`  wordmark ${n(name.width)}px, lead ${n(lead.width)}px, pills end at ${n(px - 10)}px of ${W}`);
+console.log(`  wordmark ${n(name.width)}px, lead ${lead.map((l) => n(l.width)).join('/')}px, pills end at ${n(px - 10)}px of ${W}`);
