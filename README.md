@@ -50,7 +50,7 @@ My work sits where reconnaissance meets engineering: asynchronous OSINT framewor
 
 > An interactive CLI companion for safely navigating detached HEAD states, recovering lost commits, and undoing catastrophic git mistakes.
 
-**The problem.** Git's recovery primitives are complete but unforgiving. In the exact moment you need `reflog` most — commits missing, HEAD detached, a hard reset you regret — you are stressed, and the documentation assumes you are calm.
+**The problem.** Git's recovery primitives are complete but unforgiving. In the exact moment you need `reflog` most — commits missing, HEAD detached, a hard reset you regret — the recovery path is the hardest to find.
 
 **The approach.** Rather than requiring you to already know the command, `git-mistake` starts from the symptom. You describe what went wrong in plain language; it maps that to a recovery path, states what it's about to do, and keeps you clear of operations that would make things worse.
 
