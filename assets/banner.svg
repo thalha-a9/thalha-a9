@@ -41,26 +41,27 @@
       @keyframes drift { from { transform: translate(0,0); } to { transform: translate(40px,40px); } }
       .scanmove { animation: scanmove 8s linear infinite; }
       @keyframes scanmove { from { transform: translateY(-320px); } to { transform: translateY(0); } }
-      .gA { animation: gA 3.2s steps(1) infinite; }
-      .gB { animation: gB 3.2s steps(1) infinite; }
+      .gA { animation: gA 9s steps(1) infinite; }
+      .gB { animation: gB 9s steps(1) infinite; }
       @keyframes gA {
-        0%,88% { transform: translate(0,0); opacity: 0; }
-        89% { transform: translate(-4px,2px); opacity: .85; }
-        91% { transform: translate(3px,-2px); opacity: .7; }
-        93% { transform: translate(-2px,1px); opacity: .8; }
-        95%,100% { transform: translate(0,0); opacity: 0; }
+        0%,95.5% { transform: translate(0,0); opacity: 0; }
+        96% { transform: translate(-2px,1px); opacity: .45; }
+        97% { transform: translate(2px,-1px); opacity: .3; }
+        98%,100% { transform: translate(0,0); opacity: 0; }
       }
       @keyframes gB {
-        0%,88% { transform: translate(0,0); opacity: 0; }
-        90% { transform: translate(4px,-2px); opacity: .8; }
-        92% { transform: translate(-3px,2px); opacity: .65; }
-        94% { transform: translate(2px,-1px); opacity: .75; }
-        96%,100% { transform: translate(0,0); opacity: 0; }
+        0%,95.5% { transform: translate(0,0); opacity: 0; }
+        96.5% { transform: translate(2px,-1px); opacity: .4; }
+        97.5% { transform: translate(-2px,1px); opacity: .28; }
+        98.5%,100% { transform: translate(0,0); opacity: 0; }
       }
-      .flick { animation: flick 3.2s steps(1) infinite; }
-      @keyframes flick { 0%,88%,96%,100% { opacity:1 } 90% { opacity:.55 } 92% { opacity:.9 } 94% { opacity:.6 } }
+      .flick { animation: flick 9s steps(1) infinite; }
+      @keyframes flick { 0%,95.5%,98%,100% { opacity:1 } 96% { opacity:.82 } 97% { opacity:.94 } }
       .beat { animation: beat 1.6s ease-in-out infinite; }
       @keyframes beat { 0%,100% { opacity:.25 } 50% { opacity:1 } }
+      @media (prefers-reduced-motion: reduce) {
+        .drift, .scanmove, .gA, .gB, .flick, .beat { animation: none !important; }
+      }
       .lnk { stroke:#00ff9c; stroke-opacity:.22; stroke-width:1; }
       .nd  { fill:#04080a; stroke:#00ff9c; stroke-width:1.4; }
     </style>
@@ -141,8 +142,8 @@
 
     <!-- ── title ── -->
     <g class="mono" text-anchor="middle">
-      <text class="gA" x="600" y="176" font-size="86" font-weight="700" letter-spacing="14" fill="#ff2e63">THALHA</text>
-      <text class="gB" x="600" y="176" font-size="86" font-weight="700" letter-spacing="14" fill="#00e5ff">THALHA</text>
+      <text class="gA" opacity="0" x="600" y="176" font-size="86" font-weight="700" letter-spacing="14" fill="#ff2e63">THALHA</text>
+      <text class="gB" opacity="0" x="600" y="176" font-size="86" font-weight="700" letter-spacing="14" fill="#00e5ff">THALHA</text>
       <text class="flick" x="600" y="176" font-size="86" font-weight="700" letter-spacing="14" fill="#00ff9c" filter="url(#glow)">THALHA</text>
 
       <text x="600" y="212" font-size="14" letter-spacing="6" fill="#7dffd0" fill-opacity=".85">
