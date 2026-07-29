@@ -67,6 +67,10 @@ for (let c = 0; c < CLUSTERS; c++) {
     nodes, links,
     dx: n((rand() - 0.5) * 26), dy: n((rand() - 0.5) * 20),
     dur: n(18 + rand() * 16),
+    // rotate about the cluster's own centroid, a degree or so, very slowly
+    cx: n(nodes.reduce((a, q) => a + q.x, 0) / nodes.length),
+    cy: n(nodes.reduce((a, q) => a + q.y, 0) / nodes.length),
+    rot: n((rand() - 0.5) * 2.4), rdur: n(26 + rand() * 20),
   });
 }
 
@@ -88,9 +92,24 @@ const constellation = clusters.map((c) => {
     `<line x1="${n(c.nodes[i].x)}" y1="${n(c.nodes[i].y)}" x2="${n(c.nodes[j].x)}" y2="${n(c.nodes[j].y)}" stroke="#FFFFFF" stroke-opacity="${o}"/>`).join('');
   const dots = c.nodes.map((p) =>
     `<circle cx="${n(p.x)}" cy="${n(p.y)}" r="${p.r}" fill="${p.tint}" fill-opacity="${p.o}"/>`).join('');
-  return `<g>${drift(c)}${lines}${dots}</g>`;
+  const spin = `<animateTransform attributeName="transform" type="rotate" ` +
+    `values="0 ${c.cx} ${c.cy};${c.rot} ${c.cx} ${c.cy};0 ${c.cx} ${c.cy}" dur="${c.rdur}s" ` +
+    `calcMode="spline" keyTimes="0;0.5;1" keySplines=".42 0 .58 1;.42 0 .58 1" repeatCount="indefinite"/>`;
+  return `<g>${drift(c)}<g>${spin}${lines}${dots}</g></g>`;
 }).join('\n      ') + '\n      <g>' + motes.map((m) =>
   `<circle cx="${n(m.x)}" cy="${n(m.y)}" r="${m.r}" fill="#FFFFFF" fill-opacity="${m.o}"/>`).join('') + '</g>';
+
+// motes that drift the length of the field, so the scene always has one thing moving
+const TRAILS = [
+  { d: 'M690 316 C 830 250, 960 300, 1176 168', dur: 17, r: 1.8, c: accent.emerald },
+  { d: 'M1180 60 C 1010 130, 880 90, 686 210', dur: 23, r: 1.5, c: accent.sky },
+  { d: 'M700 40 C 870 120, 1000 60, 1170 260', dur: 29, r: 1.3, c: '#FFFFFF' },
+];
+const trails = TRAILS.map((t) =>
+  `<circle r="${t.r}" fill="${t.c}" opacity="0">
+        <animate attributeName="opacity" values="0;0.75;0.75;0" keyTimes="0;0.12;0.8;1" dur="${t.dur}s" repeatCount="indefinite"/>
+        <animateMotion dur="${t.dur}s" repeatCount="indefinite" path="${t.d}" calcMode="spline" keyTimes="0;1" keySplines=".4 0 .6 1"/>
+      </circle>`).join('\n      ');
 
 // ── type ─────────────────────────────────────────────────────────────────
 const NAME = 'Thalha Ahmed';
@@ -177,15 +196,16 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
 
     <g>
       ${constellation}
+      ${trails}
     </g>
 
     <rect width="${W}" height="${H}" fill="url(#vig)"/>
 
-    <circle class="pulse" cx="${X + 4}" cy="85" r="3.5" fill="${accent.emerald}"/>
-    <path d="${eyebrow.d}" fill="#8A94A2"/>
-    <path d="${name.d}" fill="url(#shine)"/>
-    ${lead.map((l) => `<path d="${l.d}" fill="${color.text2}"/>`).join('\n    ')}
-    ${pills}
+    <g><circle class="pulse" cx="${X + 4}" cy="85" r="3.5" fill="${accent.emerald}"/>
+    <path d="${eyebrow.d}" fill="#8A94A2"/></g>
+    <g><path d="${name.d}" fill="url(#shine)"/></g>
+    <g>${lead.map((l) => `<path d="${l.d}" fill="${color.text2}"/>`).join('')}</g>
+    <g>${pills}</g>
 
     <rect width="${W}" height="${H}" filter="url(#grain)" opacity="0.05" style="mix-blend-mode:overlay"/>
     <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="${R}" fill="none" stroke="${white(0.1)}"/>
