@@ -84,19 +84,19 @@ const icon = {
 };
 
 const CARDS = [
-  { file: 'card-netsec.svg', a: accent.emerald, icon: 'shield', art: 'signal',
+  { file: 'card-netsec.svg', sheen: 10.5, a: accent.emerald, icon: 'shield', art: 'signal',
     label: '01 · DEFENSIVE', title: 'Network Security',
     body: ['Traffic and protocol analysis, service', 'exposure mapping and hardening review.'],
     meta: 'packet analysis · exposure mapping' },
-  { file: 'card-osint.svg', a: accent.sky, icon: 'nodes', art: 'graph',
+  { file: 'card-osint.svg', sheen: 12.0, a: accent.sky, icon: 'nodes', art: 'graph',
     label: '02 · INTELLIGENCE', title: 'OSINT Frameworks',
     body: ['Identity correlation and footprint', 'mapping, with verification built in.'],
     meta: 'correlation · verification · reporting' },
-  { file: 'card-pentest.svg', a: accent.rose, icon: 'target', art: 'chain',
+  { file: 'card-pentest.svg', sheen: 13.5, a: accent.rose, icon: 'target', art: 'chain',
     label: '03 · OFFENSIVE', title: 'Penetration Testing',
     body: ['Recon, enumeration, exploitation and', 'privilege escalation — scoped work.'],
     meta: 'authorized engagements only' },
-  { file: 'card-automation.svg', a: accent.amber, icon: 'cycle', art: 'loop',
+  { file: 'card-automation.svg', sheen: 15.0, a: accent.amber, icon: 'cycle', art: 'loop',
     label: '04 · ENGINEERING', title: 'Automation',
     body: ['Scheduled and event-driven pipelines', 'that run unattended, and retry safely.'],
     meta: 'idempotent · retry-safe · logged' },
@@ -131,8 +131,15 @@ for (const c of CARDS) {
       <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.06"/>
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.09"/>
     </linearGradient>
+    <linearGradient id="sh" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.075"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
     <clipPath id="c"><rect width="${W}" height="${H}" rx="${radius.card}"/></clipPath>
-    <style>@media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
+    <style>
+      @media (prefers-reduced-motion: reduce){*{animation:none!important}}
+    </style>
   </defs>
   <g clip-path="url(#c)">
     <rect width="${W}" height="${H}" fill="url(#s)"/>
@@ -142,17 +149,29 @@ for (const c of CARDS) {
     </g>
 
     <g transform="translate(${PAD + 19},${24 + 19})">
-      <rect x="-19" y="-19" width="38" height="38" rx="${radius.tile}" fill="${c.a}" fill-opacity="0.11" stroke="${c.a}" stroke-opacity="0.24"/>
+      <rect x="-19" y="-19" width="38" height="38" rx="${radius.tile}" fill="${c.a}" fill-opacity="0.11" stroke="${c.a}" stroke-opacity="0.24">
+        <animate attributeName="fill-opacity" values="0.11;0.17;0.11" dur="5.5s" calcMode="spline" keyTimes="0;0.5;1" keySplines=".4 0 .6 1;.4 0 .6 1" repeatCount="indefinite"/>
+        <animate attributeName="stroke-opacity" values="0.24;0.4;0.24" dur="5.5s" calcMode="spline" keyTimes="0;0.5;1" keySplines=".4 0 .6 1;.4 0 .6 1" repeatCount="indefinite"/>
+      </rect>
       ${icon[c.icon](c.a)}
     </g>
 
-    ${t(c.label, type.label, PAD, 92, c.a, ' fill-opacity=".9"')}
-    ${t(c.title, type.title, PAD, 122, color.text)}
-    ${t(c.body[0], type.body, PAD, 148, color.text2)}
-    ${t(c.body[1], type.body, PAD, 166, color.text2)}
-    <line x1="${PAD}" y1="184" x2="${W - PAD}" y2="184" stroke="${white(0.07)}"/>
-    ${t(c.meta, type.meta, PAD, 202, color.text3)}
+    <g>
+      ${t(c.label, type.label, PAD, 92, c.a, ' fill-opacity=".9"')}
+      ${t(c.title, type.title, PAD, 122, color.text)}
+    </g>
+    <g>
+      ${t(c.body[0], type.body, PAD, 148, color.text2)}
+      ${t(c.body[1], type.body, PAD, 166, color.text2)}
+      <line x1="${PAD}" y1="184" x2="${W - PAD}" y2="184" stroke="${white(0.07)}"/>
+      ${t(c.meta, type.meta, PAD, 202, color.text3)}
+    </g>
 
+    <g transform="skewX(-14)">
+      <rect x="-300" y="-30" width="150" height="${H + 60}" fill="url(#sh)">
+        <animate attributeName="x" values="-300;-300;${W + 120};${W + 120}" keyTimes="0;0.10;0.38;1" dur="${c.sheen}s" repeatCount="indefinite"/>
+      </rect>
+    </g>
     <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="${radius.card}" fill="none" stroke="url(#edge)"/>
   </g>
 </svg>

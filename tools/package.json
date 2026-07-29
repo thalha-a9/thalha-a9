@@ -7,8 +7,9 @@
     "fonts": "node build-fonts.mjs",
     "cards": "node gen-cards.mjs",
     "ui": "node gen-ui.mjs",
-    "hero": "node render-hero.mjs",
-    "build": "npm run fonts && npm run cards && npm run ui && npm run hero"
+    "hero": "node gen-hero.mjs",
+    "build": "npm run fonts && npm run hero && npm run cards && npm run ui && npm run check",
+    "check": "node check.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.0.0",

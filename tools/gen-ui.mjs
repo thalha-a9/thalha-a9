@@ -103,6 +103,15 @@ const path = (s, o, x, y, fill, op = 1) =>
     <rect width="${W}" height="${H}" fill="${color.surface1}"/>
     <ellipse cx="600" cy="104" rx="420" ry="90" fill="url(#g)"/>
     <rect x="300" y="0" width="600" height="1" fill="url(#b)"/>
+    <circle cy="0.5" r="34" fill="url(#g)" opacity="0.9">
+      <animate attributeName="cx" values="300;900;300" dur="14s" calcMode="spline"
+        keyTimes="0;0.5;1" keySplines=".45 0 .55 1;.45 0 .55 1" repeatCount="indefinite"/>
+    </circle>
+    <circle cy="0.5" r="1.6" fill="${accent.emerald}">
+      <animate attributeName="cx" values="300;900;300" dur="14s" calcMode="spline"
+        keyTimes="0;0.5;1" keySplines=".45 0 .55 1;.45 0 .55 1" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values=".3;1;.3" dur="14s" repeatCount="indefinite"/>
+    </circle>
     ${path(line, { size: 13, weight: 400 }, n((W - w) / 2), 60, color.text3)}
     <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="${radius.card}" fill="none" stroke="${white(0.08)}"/>
   </g>
