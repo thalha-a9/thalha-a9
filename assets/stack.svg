@@ -16,6 +16,9 @@
       @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
       .led{animation:led 2.4s ease-in-out infinite}
       @keyframes led{0%,100%{opacity:.3}50%{opacity:1}}
+      @media (prefers-reduced-motion: reduce) {
+        .pill, .led { animation: none !important; }
+      }
       .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}.d4{animation-delay:.35s}
       .d5{animation-delay:.45s}.d6{animation-delay:.55s}.d7{animation-delay:.65s}.d8{animation-delay:.75s}
     </style>
