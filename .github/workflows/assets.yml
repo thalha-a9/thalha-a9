@@ -1,0 +1,54 @@
+# Rebuilds every graphic in assets/ from tools/ and verifies the result.
+#
+# On a pull request it only verifies. On a push to main that touches the
+# generators, it rebuilds and commits the regenerated artwork — so the README's
+# graphics can never drift from the source that produces them.
+name: assets
+
+on:
+  push:
+    branches: [main]
+    paths: ['tools/**', '.github/workflows/assets.yml']
+  pull_request:
+    paths: ['tools/**', 'assets/**', 'README.md']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: assets-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tools/package-lock.json
+
+      - name: Install
+        working-directory: tools
+        run: npm ci
+
+      - name: Build and verify
+        working-directory: tools
+        run: npm run build
+
+      - name: Commit regenerated assets
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets
+          if git diff --cached --quiet; then
+            echo "assets already match their source"
+          else
+            git commit -m "chore(assets): rebuild from tools"
+            git push
+          fi
