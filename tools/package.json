@@ -2,14 +2,15 @@
   "name": "profile-studio",
   "private": true,
   "type": "module",
-  "description": "Generates every graphic in ../assets. Run `npm install && npm run build`.",
+  "description": "Generates every graphic in ../assets, in dark and light themes. Run `npm install && npm run build`.",
   "scripts": {
     "fonts": "node build-fonts.mjs",
-    "cards": "node gen-cards.mjs",
-    "ui": "node gen-ui.mjs",
     "hero": "node gen-hero.mjs",
-    "build": "npm run fonts && npm run hero && npm run cards && npm run ui && npm run check",
-    "check": "node check.mjs"
+    "cards": "node gen-cards.mjs",
+    "projects": "node gen-projects.mjs",
+    "ui": "node gen-ui.mjs",
+    "check": "node check.mjs",
+    "build": "npm run fonts && npm run hero && npm run cards && npm run projects && npm run ui && npm run check"
   },
   "dependencies": {
     "@fontsource/inter": "^5.0.0",
