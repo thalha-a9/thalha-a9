@@ -1,6 +1,8 @@
-<div align="center">
-  <img src="assets/hero.svg" alt="Thalha Ahmed — security researcher and tool engineer. I build local-first security tooling that returns answers you can verify." width="100%">
-</div>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
+  <img src="assets/hero-light.svg" alt="Thalha Ahmed — developer and security researcher. I build high-performance, local-first CLI tools, automation scripts, and advanced OSINT frameworks." width="100%">
+</picture>
 
 <p align="center">
   <a href="#about">About</a> &nbsp;·&nbsp;
@@ -19,21 +21,29 @@ I'm **Thalha Ahmed** — a developer and security researcher. I build **high-per
 
 My work sits where reconnaissance meets engineering: asynchronous OSINT frameworks, network security tooling, and the automation that ties them together — all of it **built to eliminate false positives**.
 
-<div align="center">
-  <img src="assets/code.svg" alt="helix --map-identity --deep — resolving surfaces, extracting bio-linked profiles, verifying via native email checks, identity graph resolved with zero false positives" width="100%">
-</div>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/code-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/code-light.svg">
+  <img src="assets/code-light.svg" alt="helix --map-identity --deep — resolving surfaces, extracting bio-linked profiles, verifying via native email checks; identity graph resolved with zero false positives" width="100%">
+</picture>
 
 <br>
 
 ## Selected Work
 
-### Helix — Advanced OSINT Identity Mapper
+<a href="https://github.com/thalha-a9/helix">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/project-helix-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/project-helix-light.svg">
+    <img src="assets/project-helix-light.svg" alt="Helix — OSINT identity mapping, built to eliminate false positives" width="100%">
+  </picture>
+</a>
 
-> An asynchronous OSINT identity mapping engine that tracks digital footprints across platforms, extracts bio-linked profiles, and correlates targets with native email verification.
+**Helix** is an asynchronous OSINT identity mapping tool engineered to track digital footprints, extract bio-linked profiles, and correlate targets with native email verification.
 
 **The problem.** Most username-enumeration tooling optimises for coverage and pays for it in noise — a wall of "hits" you then have to disprove by hand.
 
-**The approach.** Helix treats verification as a first-class stage rather than post-processing. Surfaces resolve concurrently, bio-linked profiles are extracted and cross-referenced, and native email verification confirms or rejects each correlation *before* it reaches the report.
+**The approach.** Verification is a first-class stage, not post-processing. Surfaces resolve concurrently, bio-linked profiles are extracted and cross-referenced, and native email verification confirms or rejects each correlation *before* it reaches the report.
 
 | Capability | What it means |
 |:--|:--|
@@ -44,11 +54,17 @@ My work sits where reconnaissance meets engineering: asynchronous OSINT framewor
 
 <div align="right"><a href="https://github.com/thalha-a9/helix"><b>View the repository →</b></a></div>
 
----
+<br>
 
-### git-mistake — Interactive Git Damage Control
+<a href="https://github.com/thalha-a9/git-mistake">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/project-git-mistake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/project-git-mistake-light.svg">
+    <img src="assets/project-git-mistake-light.svg" alt="git-mistake — recover lost commits and undo catastrophic git mistakes, safely" width="100%">
+  </picture>
+</a>
 
-> An interactive CLI companion for safely navigating detached HEAD states, recovering lost commits, and undoing catastrophic git mistakes.
+**git-mistake** is an interactive CLI companion designed to safely navigate detached HEAD states, recover lost commits, and undo catastrophic git mistakes.
 
 **The problem.** Git's recovery primitives are complete but unforgiving. In the exact moment you need `reflog` most — commits missing, HEAD detached, a hard reset you regret — the recovery path is the hardest to find.
 
@@ -69,14 +85,45 @@ My work sits where reconnaissance meets engineering: asynchronous OSINT framewor
 
 <table>
 <tr>
-<td width="50%"><img src="assets/card-netsec.svg" alt="Network Security — traffic and protocol analysis, service exposure mapping and hardening review" width="100%"></td>
-<td width="50%"><img src="assets/card-osint.svg" alt="OSINT Frameworks — identity correlation and footprint mapping, with verification built in" width="100%"></td>
+<td width="50%">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/card-netsec-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/card-netsec-light.svg">
+  <img src="assets/card-netsec-light.svg" alt="Network Security — traffic and protocol analysis, service exposure mapping and hardening review" width="100%">
+</picture>
+</td>
+<td width="50%">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/card-osint-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/card-osint-light.svg">
+  <img src="assets/card-osint-light.svg" alt="OSINT Frameworks — identity correlation and footprint mapping, with verification built in" width="100%">
+</picture>
+</td>
 </tr>
 <tr>
-<td width="50%"><img src="assets/card-pentest.svg" alt="Penetration Testing — recon, enumeration, exploitation and privilege escalation, scoped work" width="100%"></td>
-<td width="50%"><img src="assets/card-automation.svg" alt="Automation — scheduled and event-driven pipelines that run unattended and retry safely" width="100%"></td>
+<td width="50%">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/card-pentest-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/card-pentest-light.svg">
+  <img src="assets/card-pentest-light.svg" alt="Penetration Testing — recon, enumeration, exploitation and privilege escalation; scoped work" width="100%">
+</picture>
+</td>
+<td width="50%">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/card-automation-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/card-automation-light.svg">
+  <img src="assets/card-automation-light.svg" alt="Automation — scheduled and event-driven pipelines that run unattended and retry safely" width="100%">
+</picture>
+</td>
 </tr>
 </table>
+
+| | Discipline | Applied to |
+|:-:|:--|:--|
+| `01` | **Network Security** | Traffic and protocol analysis, service exposure mapping, hardening and configuration review |
+| `02` | **OSINT Frameworks** | Identity correlation, footprint mapping, source verification, structured intelligence output |
+| `03` | **Penetration Testing** | Reconnaissance, enumeration, exploitation and privilege escalation — scoped and authorized |
+| `04` | **Automation** | Scheduled and event-driven pipelines, idempotent and retry-safe, built to run unattended |
 
 > **On offensive work:** everything under `03` happens only within an agreed scope, with authorization, and is reported to the owner of the system. Tooling I publish is built for defenders, researchers, and authorized engagements.
 
@@ -98,7 +145,7 @@ My work sits where reconnaissance meets engineering: asynchronous OSINT framewor
 
 ## Writing
 
-Technical deep-dives, tool architecture breakdowns, and security research — the reasoning behind the tools above, written out in full.
+Technical deep-dives, tool architecture breakdowns, and cybersecurity research — the reasoning behind the tools above, written out in full.
 
 <div align="center">
   <h3><a href="https://helix-osint.hashnode.dev">Helix OSINT Labs →</a></h3>
@@ -115,10 +162,12 @@ Open to conversations about security tooling, OSINT engineering, and collaborati
 | **GitHub** | [github.com/thalha-a9](https://github.com/thalha-a9) |
 | **Writing** | [helix-osint.hashnode.dev](https://helix-osint.hashnode.dev) |
 
-<div align="center">
-  <img src="assets/footer.svg" alt="Local-first · no telemetry · no third-party services" width="100%">
-</div>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/footer-light.svg">
+  <img src="assets/footer-light.svg" alt="local-first · no telemetry · no third-party services" width="100%">
+</picture>
 
 <p align="center">
-  <sub>Every graphic here is generated from <a href="tools/">/tools</a> — type outlined with opentype.js, no webfonts, no badge services, no CDNs.</sub>
+  <sub>Every graphic on this page is generated from <a href="tools/">/tools</a> and verified in CI — type outlined with opentype.js, dark and light themes rendered from one scene, no webfonts, no badge services, no CDNs. It adapts to your GitHub theme.</sub>
 </p>
