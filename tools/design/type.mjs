@@ -40,7 +40,7 @@ export function textPath(text, { size, weight = 600, x = 0, y = 0, tracking = 0,
   return { d: parts.join(''), width: pen - x - (text.length ? tracking : 0) };
 }
 
-/** Advance width only — for centring and for sizing pills around a label. */
+/** Advance width only, for centring and for sizing pills around a label. */
 export function textWidth(text, opts) {
   return textPath(text, { ...opts, x: 0, y: 0 }).width;
 }

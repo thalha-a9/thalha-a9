@@ -1,173 +1,107 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
-  <img src="assets/hero-light.svg" alt="Thalha Ahmed — developer and security researcher. I build high-performance, local-first CLI tools, automation scripts, and advanced OSINT frameworks." width="100%">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/man-narrow-dark.svg">
+  <source media="(max-width: 600px)" srcset="assets/man-narrow-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/man-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/man-light.svg">
+  <img src="assets/man-light.svg" alt="man thalha. NAME: Thalha Ahmed, thalha-a9 on GitHub. Writes command line tools that check their own answers before showing them to you." width="100%">
 </picture>
 
-<p align="center">
-  <a href="#about">About</a> &nbsp;·&nbsp;
-  <a href="#selected-work">Selected Work</a> &nbsp;·&nbsp;
-  <a href="#specializations">Specializations</a> &nbsp;·&nbsp;
-  <a href="#how-i-work">How I Work</a> &nbsp;·&nbsp;
-  <a href="#writing">Writing</a> &nbsp;·&nbsp;
-  <a href="#contact">Contact</a>
-</p>
+<p><b>PROJECTS</b></p>
+<dl><dd>
 
-<br>
+**[helix](https://github.com/thalha-a9/helix)**(1)<br>
+Username OSINT. Give it a name and it asks 11,988 sites whether that account exists: the Sherlock, WhatsMyName and Maigret lists, plus 3,683 Mastodon, Misskey, Lemmy and PeerTube servers. Every account it finds gets checked again on the same site with two usernames that can't exist. If the site says yes to those as well, the hit is thrown away. Whatever survives is graded HIGH, MEDIUM or LOW for how likely it is to be the same person.
 
-## About
+```
+pipx install helix-osint
+helix-osint -u someone --all
+```
 
-I'm **Thalha Ahmed** — a developer and security researcher. I build **high-performance, local-first CLI tools, automation scripts, and advanced OSINT frameworks.**
+On [PyPI](https://pypi.org/project/helix-osint/), and in review for BlackArch.
 
-My work sits where reconnaissance meets engineering: asynchronous OSINT frameworks, network security tooling, and the automation that ties them together — all of it **built to eliminate false positives**.
+**[git-mistake](https://github.com/thalha-a9/git-mistake)**(1)<br>
+For the bad day in git: a detached HEAD, a reset you regret, commits that look gone. You say what went wrong, it finds the way back through the reflog, tells you what it's about to run, and keeps away from anything that would make it worse.
+
+</dd></dl>
+
+<p><b>EXAMPLES</b></p>
+<dl><dd>
+
+Helix on a username nobody has ever used, so any account it reports would be a false positive. This is the real run from 30 October 2026 with Helix 3.6.0.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/code-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/code-light.svg">
-  <img src="assets/code-light.svg" alt="Helix: open source username checker with verified hits across 11,988 sites" width="100%">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/run-narrow-dark.svg">
+  <source media="(max-width: 600px)" srcset="assets/run-narrow-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/run-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/run-light.svg">
+  <img src="assets/run-light.svg" alt="A real Helix 3.6.0 run: a made-up username checked on 11,988 sites, 0 accounts found, 176.5 seconds." width="100%">
 </picture>
 
-<br>
+The fingerprint seals the evidence file, so anyone can check later that the result wasn't edited: `helix-osint --verify-evidence`.
 
-## Selected Work
+</dd></dl>
 
-<a href="https://github.com/thalha-a9/helix">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/project-helix-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/project-helix-light.svg">
-    <img src="assets/project-helix-light.svg" alt="Helix: open source username checker with verified hits across 11,988 sites" width="100%">
-  </picture>
-</a>
+<p><b>EXIT STATUS</b></p>
+<dl><dd>
 
-**Helix**: Open source username checker for OSINT. Checks 11,988 sites, re-verifies every hit live against made-up usernames, and maps which accounts belong to the same person. `pipx install helix-osint`
+**0** accounts found for the made-up name, across all 11,988 sites.<br>
+**111** sites said yes to every name and were dropped before they could count.
 
-**The problem.** Most username-enumeration tooling optimises for coverage and pays for it in noise — a wall of "hits" you then have to disprove by hand.
+</dd></dl>
 
-**The approach.** Helix runs the Sherlock, WhatsMyName and Maigret databases together, plus 3,683 Mastodon, Misskey, Lemmy and PeerTube servers. When a site reports a hit, Helix asks the same site for two usernames that cannot exist, and keeps the hit only if both get a clear "not found". Each account is then graded HIGH, MEDIUM or LOW for whether it belongs to the same person, from independent evidence such as an identical avatar or a link one account declares to another.
+<p><b>OPTIONS</b></p>
+<dl><dd>
 
-| Capability | What it means |
-|:--|:--|
-| **Async by design** | Concurrent resolution across surfaces, not serial request chains |
-| **Correlation, not collection** | Builds an identity graph — links between findings, not a flat list |
-| **Live verification** | Every hit is re-checked against two made-up usernames on the same site |
-| **0 false positives on made-up usernames across 11,988 sites** | Rejected candidates are dropped before output, not left for you to triage |
+**--osint**<br>
+Finding people and accounts from public sources, and proving each finding holds up.
 
-<div align="right"><a href="https://github.com/thalha-a9/helix"><b>View the repository →</b></a></div>
+**--network**<br>
+Traffic and protocol analysis, what a host exposes to the world, hardening reviews.
 
-<br>
+**--pentest**<br>
+Recon, enumeration, exploitation, privilege escalation. Only with written permission and an agreed scope, and everything found goes back to whoever owns the system.
 
-<a href="https://github.com/thalha-a9/git-mistake">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/project-git-mistake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/project-git-mistake-light.svg">
-    <img src="assets/project-git-mistake-light.svg" alt="git-mistake — recover lost commits and undo catastrophic git mistakes, safely" width="100%">
-  </picture>
-</a>
+**--automate**<br>
+Jobs that run on a schedule or on an event, are safe to retry, and stay quiet unless something breaks.
 
-**git-mistake** is an interactive CLI companion designed to safely navigate detached HEAD states, recover lost commits, and undo catastrophic git mistakes.
+</dd></dl>
 
-**The problem.** Git's recovery primitives are complete but unforgiving. In the exact moment you need `reflog` most — commits missing, HEAD detached, a hard reset you regret — the recovery path is the hardest to find.
+<p><b>NOTES</b></p>
+<dl><dd>
 
-**The approach.** Rather than requiring you to already know the command, `git-mistake` starts from the symptom. You describe what went wrong in plain language; it maps that to a recovery path, states what it's about to do, and keeps you clear of operations that would make things worse.
+My tools run on your own machine. No account to make, no telemetry, and no one else's server seeing who you look up.
 
-| Design choice | What it means |
-|:--|:--|
-| **Symptom-first** | Ask "what went wrong", not "which plumbing command do you need" |
-| **Non-destructive** | Recovery paths that don't compound the original mistake |
-| **Explains itself** | Every action is stated before it runs — you learn the escape route |
-| **Built for the bad day** | Designed for the moment you're panicking, not the moment you're reading docs |
+If a result can't be verified, it doesn't get printed.
 
-<div align="right"><a href="https://github.com/thalha-a9/git-mistake"><b>View the repository →</b></a></div>
+If I do something twice, it becomes a script. If I do it every week, it becomes a tool.
 
-<br>
+</dd></dl>
 
-## Specializations
+<p><b>BUGS</b></p>
+<dl><dd>
 
-<table>
-<tr>
-<td width="50%">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/card-netsec-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/card-netsec-light.svg">
-  <img src="assets/card-netsec-light.svg" alt="Network Security — traffic and protocol analysis, service exposure mapping and hardening review" width="100%">
-</picture>
-</td>
-<td width="50%">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/card-osint-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/card-osint-light.svg">
-  <img src="assets/card-osint-light.svg" alt="OSINT Frameworks — identity correlation and footprint mapping, with verification built in" width="100%">
-</picture>
-</td>
-</tr>
-<tr>
-<td width="50%">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/card-pentest-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/card-pentest-light.svg">
-  <img src="assets/card-pentest-light.svg" alt="Penetration Testing — recon, enumeration, exploitation and privilege escalation; scoped work" width="100%">
-</picture>
-</td>
-<td width="50%">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/card-automation-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/card-automation-light.svg">
-  <img src="assets/card-automation-light.svg" alt="Automation — scheduled and event-driven pipelines that run unattended and retry safely" width="100%">
-</picture>
-</td>
-</tr>
-</table>
+If Helix shows you an account that isn't real, that's a bug and I want to see it: [report a false positive](https://github.com/thalha-a9/helix/issues/new?template=false_positive.yml).
 
-| | Discipline | Applied to |
-|:-:|:--|:--|
-| `01` | **Network Security** | Traffic and protocol analysis, service exposure mapping, hardening and configuration review |
-| `02` | **OSINT Frameworks** | Identity correlation, footprint mapping, source verification, structured intelligence output |
-| `03` | **Penetration Testing** | Reconnaissance, enumeration, exploitation and privilege escalation — scoped and authorized |
-| `04` | **Automation** | Scheduled and event-driven pipelines, idempotent and retry-safe, built to run unattended |
+</dd></dl>
 
-> **On offensive work:** everything under `03` happens only within an agreed scope, with authorization, and is reported to the owner of the system. Tooling I publish is built for defenders, researchers, and authorized engagements.
+<p><b>SEE ALSO</b></p>
+<dl><dd>
 
-<br>
+[helix](https://github.com/thalha-a9/helix)(1), [git-mistake](https://github.com/thalha-a9/git-mistake)(1), [Helix OSINT Labs](https://helix-osint.hashnode.dev) for the write-ups behind the tools.
 
-## How I Work
+</dd></dl>
 
-**Local-first.** Tools run on your machine. No mandatory cloud round-trip, no telemetry, no third-party service that can rate-limit you mid-engagement or quietly log your targets.
+<p><b>AUTHOR</b></p>
+<dl><dd>
 
-**Verified output, or none.** Verification runs in-pipeline and rejected candidates are dropped before they reach you — built to eliminate false positives, not to hand you a list to disprove.
+Thalha Ahmed. Happy to talk about OSINT tooling, security work, or either project; reach me here on GitHub or through the blog.
 
-**Async where it counts.** Reconnaissance is I/O-bound. Concurrency is the difference between a tool you use and a tool you wait for.
-
-**Automate the second occurrence.** If a task happens twice it gets a script; if it happens on a schedule it gets a tool — idempotent, retry-safe, logged.
-
-**The bad day is the design target.** Tooling should be at its clearest when the person using it is at their most stressed.
-
-<br>
-
-## Writing
-
-Technical deep-dives, tool architecture breakdowns, and cybersecurity research — the reasoning behind the tools above, written out in full.
-
-<div align="center">
-  <h3><a href="https://helix-osint.hashnode.dev">Helix OSINT Labs →</a></h3>
-</div>
-
-<br>
-
-## Contact
-
-Open to conversations about security tooling, OSINT engineering, and collaboration on either project above.
-
-| | |
-|:--|:--|
-| **GitHub** | [github.com/thalha-a9](https://github.com/thalha-a9) |
-| **Writing** | [helix-osint.hashnode.dev](https://helix-osint.hashnode.dev) |
+</dd></dl>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/footer-light.svg">
-  <img src="assets/footer-light.svg" alt="local-first · no telemetry · no third-party services" width="100%">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/end-narrow-dark.svg">
+  <source media="(max-width: 600px)" srcset="assets/end-narrow-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/end-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/end-light.svg">
+  <img src="assets/end-light.svg" alt="thalha-a9, October 2026, THALHA(1). END" width="100%">
 </picture>
-
-<p align="center">
-  <sub>Every graphic on this page is generated from <a href="tools/">/tools</a> and verified in CI — type outlined with opentype.js, dark and light themes rendered from one scene, no webfonts, no badge services, no CDNs. It adapts to your GitHub theme.</sub>
-</p>

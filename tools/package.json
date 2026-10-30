@@ -5,12 +5,9 @@
   "description": "Generates every graphic in ../assets, in dark and light themes. Run `npm install && npm run build`.",
   "scripts": {
     "fonts": "node build-fonts.mjs",
-    "hero": "node gen-hero.mjs",
-    "cards": "node gen-cards.mjs",
-    "projects": "node gen-projects.mjs",
-    "ui": "node gen-ui.mjs",
+    "man": "node gen-man.mjs",
     "check": "node check.mjs",
-    "build": "npm run fonts && npm run hero && npm run cards && npm run projects && npm run ui && npm run check"
+    "build": "npm run fonts && npm run man && npm run check"
   },
   "dependencies": {
     "@fontsource/inter": "^5.0.0",

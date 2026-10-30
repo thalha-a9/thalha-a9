@@ -1,7 +1,7 @@
 # Rebuilds every graphic in assets/ from tools/ and verifies the result.
 #
 # On a pull request it only verifies. On a push to main that touches the
-# generators, it rebuilds and commits the regenerated artwork — so the README's
+# generators, it rebuilds and commits the regenerated artwork, so the README's
 # graphics can never drift from the source that produces them.
 name: assets
 

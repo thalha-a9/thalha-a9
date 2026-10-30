@@ -2,7 +2,7 @@
  * Integrity check for the generated artwork. Runs last in `npm run build`.
  *
  * A dangling url(#id), a class with no rule, or malformed SMIL timing all fail
- * silently in a browser — it draws nothing and says nothing. This catches them,
+ * silently in a browser: it draws nothing and says nothing. This catches them,
  * confirms every asset exists in both themes, and confirms the README and the
  * assets directory agree with each other.
  */
@@ -32,14 +32,14 @@ for (const file of files) {
     const kt = tag.match(/keyTimes="([^"]+)"/);
     if (!kt) continue;
     const k = kt[1].split(';').map(Number);
-    if (k[0] !== 0 || k.at(-1) !== 1) fail(`keyTimes must run 0..1 — got ${kt[1]}`);
-    if (k.some((v, i) => i && v < k[i - 1])) fail(`keyTimes not monotonic — ${kt[1]}`);
+    if (k[0] !== 0 || k.at(-1) !== 1) fail(`keyTimes must run 0..1, got ${kt[1]}`);
+    if (k.some((v, i) => i && v < k[i - 1])) fail(`keyTimes not monotonic: ${kt[1]}`);
     for (const attr of ['values', 'keyPoints']) {
       const m = tag.match(new RegExp(`${attr}="([^"]+)"`));
       if (m && m[1].split(';').length !== k.length) fail(`${attr} has ${m[1].split(';').length} entries, keyTimes has ${k.length}`);
     }
     const ks = tag.match(/keySplines="([^"]+)"/);
-    if (ks && ks[1].split(';').length !== k.length - 1) fail(`keySplines needs ${k.length - 1} entries — ${ks[1]}`);
+    if (ks && ks[1].split(';').length !== k.length - 1) fail(`keySplines needs ${k.length - 1} entries: ${ks[1]}`);
   }
 
   const opens = (src.match(/<[a-zA-Z]/g) || []).length;

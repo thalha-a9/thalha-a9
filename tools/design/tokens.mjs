@@ -2,14 +2,14 @@
  * The single source of truth for every graphic in ../assets.
  *
  * Two themes share one geometry. Generators compute layout once, then render
- * it per theme, so the dark and light artwork are the same scene — only the
+ * it per theme, so the dark and light artwork are the same scene; only the
  * palette changes. The README serves whichever matches the viewer's GitHub
  * theme through <picture> / prefers-color-scheme.
  */
 
 export const radius = { card: 18, tile: 12, pill: 999 };
 
-/** Type ramp — sizes, weights and tracking, in one place. */
+/** Type ramp: sizes, weights and tracking, in one place. */
 export const type = {
   display: { size: 84, weight: 700, tracking: -3.1 },
   h1: { size: 26, weight: 700, tracking: -0.6 },
