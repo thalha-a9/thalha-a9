@@ -75,8 +75,8 @@ const gitmistake = (a, th) => {
 const PROJECTS = [
   { base: 'project-helix', ak: 'emerald', sheen: 12, art: helix,
     eyebrow: '01  ·  OPEN SOURCE', title: 'Helix',
-    tagline: 'OSINT identity mapping, built to eliminate false positives.',
-    tags: ['Asynchronous', 'OSINT', 'Native email verification'] },
+    tagline: 'Checks a username on 11,988 sites and verifies every hit live.',
+    tags: ['Username OSINT', '11,988 sites', 'Live verification'] },
   { base: 'project-git-mistake', ak: 'sky', sheen: 14, art: gitmistake,
     eyebrow: '02  ·  OPEN SOURCE', title: 'git-mistake',
     tagline: 'Recover lost commits and undo catastrophic git mistakes — safely.',

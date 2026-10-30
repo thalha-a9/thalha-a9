@@ -24,7 +24,7 @@ My work sits where reconnaissance meets engineering: asynchronous OSINT framewor
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/code-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/code-light.svg">
-  <img src="assets/code-light.svg" alt="Helix: open source username checker with verified hits across 8,305 sites" width="100%">
+  <img src="assets/code-light.svg" alt="Helix: open source username checker with verified hits across 11,988 sites" width="100%">
 </picture>
 
 <br>
@@ -35,22 +35,22 @@ My work sits where reconnaissance meets engineering: asynchronous OSINT framewor
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/project-helix-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/project-helix-light.svg">
-    <img src="assets/project-helix-light.svg" alt="Helix: open source username checker with verified hits across 8,305 sites" width="100%">
+    <img src="assets/project-helix-light.svg" alt="Helix: open source username checker with verified hits across 11,988 sites" width="100%">
   </picture>
 </a>
 
-**Helix**: Open source username checker for OSINT. Checks 8,305 sites, re-verifies every hit live against made-up usernames, and maps which accounts belong to the same person. `pipx install helix-osint`
+**Helix**: Open source username checker for OSINT. Checks 11,988 sites, re-verifies every hit live against made-up usernames, and maps which accounts belong to the same person. `pipx install helix-osint`
 
 **The problem.** Most username-enumeration tooling optimises for coverage and pays for it in noise — a wall of "hits" you then have to disprove by hand.
 
-**The approach.** Helix runs the Sherlock, WhatsMyName and Maigret databases together. When a site reports a hit, Helix asks the same site for two usernames that cannot exist, and keeps the hit only if both get a clear "not found". Each account is then graded HIGH, MEDIUM or LOW for whether it belongs to the same person, from independent evidence such as an identical avatar or a link one account declares to another.
+**The approach.** Helix runs the Sherlock, WhatsMyName and Maigret databases together, plus 3,683 Mastodon, Misskey, Lemmy and PeerTube servers. When a site reports a hit, Helix asks the same site for two usernames that cannot exist, and keeps the hit only if both get a clear "not found". Each account is then graded HIGH, MEDIUM or LOW for whether it belongs to the same person, from independent evidence such as an identical avatar or a link one account declares to another.
 
 | Capability | What it means |
 |:--|:--|
 | **Async by design** | Concurrent resolution across surfaces, not serial request chains |
 | **Correlation, not collection** | Builds an identity graph — links between findings, not a flat list |
 | **Live verification** | Every hit is re-checked against two made-up usernames on the same site |
-| **0 false positives on made-up usernames across 8,305 sites** | Rejected candidates are dropped before output, not left for you to triage |
+| **0 false positives on made-up usernames across 11,988 sites** | Rejected candidates are dropped before output, not left for you to triage |
 
 <div align="right"><a href="https://github.com/thalha-a9/helix"><b>View the repository →</b></a></div>
 
