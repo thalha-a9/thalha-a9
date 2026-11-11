@@ -10,14 +10,16 @@
 <dl><dd>
 
 **[helix](https://github.com/thalha-a9/helix)**(1)<br>
-Username OSINT. Give it a name and it asks 11,988 sites whether that account exists: the Sherlock, WhatsMyName and Maigret lists, plus 3,683 Mastodon, Misskey, Lemmy and PeerTube servers. Every account it finds gets checked again on the same site with two usernames that can't exist. If the site says yes to those as well, the hit is thrown away. Whatever survives is graded HIGH, MEDIUM or LOW for how likely it is to be the same person.
+Username OSINT. Give it a name and it asks about 12,000 sites whether that account exists: the Sherlock, WhatsMyName and Maigret lists, plus about 3,700 Mastodon, Misskey, Lemmy and PeerTube servers. Every account it finds gets checked again on the same site with three usernames that can't exist, one of them the same length as yours. If the site says yes to those as well, the hit is thrown away. Whatever survives is graded HIGH, MEDIUM or LOW for how likely it is to be the same person.
+
+Every site is tested once a day against a real account and a made-up name, and the results are public on the [status page](https://thalha-a9.github.io/helix/). Sites that keep failing switch themselves off. It can also show you your own footprint (`--me`), watch a name over time (`--watch`), and seal what it found so nobody can edit it later.
 
 ```
 pipx install helix-osint
 helix-osint -u someone --all
 ```
 
-On [PyPI](https://pypi.org/project/helix-osint/), and in review for BlackArch.
+On [PyPI](https://pypi.org/project/helix-osint/) and [Docker](https://github.com/thalha-a9/helix/pkgs/container/helix), and in review for BlackArch.
 
 **[git-mistake](https://github.com/thalha-a9/git-mistake)**(1)<br>
 For the bad day in git: a detached HEAD, a reset you regret, commits that look gone. You say what went wrong, it finds the way back through the reflog, tells you what it's about to run, and keeps away from anything that would make it worse.
@@ -27,14 +29,14 @@ For the bad day in git: a detached HEAD, a reset you regret, commits that look g
 <p><b>EXAMPLES</b></p>
 <dl><dd>
 
-Helix on a username nobody has ever used, so any account it reports would be a false positive. This is the real run from 30 October 2026 with Helix 3.6.0.
+Helix on a username nobody has ever used, so any account it reports would be a false positive. This is the real run from 10 November 2026 with Helix 4.0.0.
 
 <picture>
   <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/run-narrow-dark.svg">
   <source media="(max-width: 600px)" srcset="assets/run-narrow-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/run-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/run-light.svg">
-  <img src="assets/run-light.svg" alt="A real Helix 3.6.0 run: a made-up username checked on 11,988 sites, 0 accounts found, 176.5 seconds." width="100%">
+  <img src="assets/run-light.svg" alt="A real Helix 4.0.0 run: a made-up username checked on 11,956 sites, 10,663 answered, 0 accounts found, 290.5 seconds." width="100%">
 </picture>
 
 The fingerprint seals the evidence file, so anyone can check later that the result wasn't edited: `helix-osint --verify-evidence`.
@@ -44,8 +46,9 @@ The fingerprint seals the evidence file, so anyone can check later that the resu
 <p><b>EXIT STATUS</b></p>
 <dl><dd>
 
-**0** accounts found for the made-up name, across all 11,988 sites.<br>
-**111** sites said yes to every name and were dropped before they could count.
+**0** accounts found for the made-up name, across all 11,956 sites.<br>
+**156** sites said yes to every name and were dropped before they could count.<br>
+**9,533** sites proven on the daily check: a real account found, a made-up name not.
 
 </dd></dl>
 
@@ -103,5 +106,5 @@ Thalha Ahmed. Happy to talk about OSINT tooling, security work, or either projec
   <source media="(max-width: 600px)" srcset="assets/end-narrow-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/end-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/end-light.svg">
-  <img src="assets/end-light.svg" alt="thalha-a9, October 2026, THALHA(1). END" width="100%">
+  <img src="assets/end-light.svg" alt="thalha-a9, November 2026, THALHA(1). END" width="100%">
 </picture>

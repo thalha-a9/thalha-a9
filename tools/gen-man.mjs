@@ -3,7 +3,7 @@
  *
  *   man   the top of the page: the command, the header line, NAME, SYNOPSIS,
  *         DESCRIPTION and the pager's status line
- *   run   a real Helix 3.6.0 run on a made-up username (30 Oct 2026), lines
+ *   run   a real Helix 4.0.0 run on a made-up username (10 Nov 2026), lines
  *         copied from its output, nothing invented
  *   end   the page footer and the pager's (END)
  *
@@ -137,15 +137,15 @@ function man(p) {
       [t('to you. Mostly Python, mostly async,')],
       [t('all open source.')],
       null,
-      [t('Author of '), b('helix'), t('(1), which asks 11,988')],
-      [t('sites about a username and re-checks')],
-      [t('every account it finds before it')],
-      [t('reports it.')],
+      [t('Author of '), b('helix'), t('(1), which asks about')],
+      [t('12,000 sites about a username and')],
+      [t('re-checks every account it finds')],
+      [t('before it reports it.')],
     ] : [
       [t('Writes command line tools that check their own answers before')],
       [t('showing them to you. Mostly Python, mostly async, all open source.')],
       null,
-      [t('Author of '), b('helix'), t('(1), which asks 11,988 sites about a username')],
+      [t('Author of '), b('helix'), t('(1), which asks about 12,000 sites about a username')],
       [t('and re-checks every account it finds before it reports it.')],
     ]),
   ];
@@ -177,47 +177,44 @@ function run(p) {
   const S = 12.5, LH = 20.5;
   const d = (s) => [s, 'dim'], t = (s) => [s, 'text'];
   const rows = narrow ? [
-    [d('$ '), ['helix-osint -u 4tj4jneu4byr --all \\', 'bold']],
+    [d('$ '), ['helix-osint -u ofdsld3h2nwe --all \\', 'bold']],
     [['    --record-attempt', 'bold']],
     null,
-    [d('Target   : '), ['@4tj4jneu4byr', 'cyan']],
-    [d('Platforms: '), ['11988', 'cyan']],
-    [t('Re-checking 1560 site(s) that timed out')],
-    [t('on the fast pass...')],
-    [['[control]', 'amber'], t(' Discarded 111 platform(s) that')],
+    [d('Target   : '), ['@ofdsld3h2nwe', 'cyan']],
+    [d('Platforms: '), ['11956', 'cyan']],
+    [['[control]', 'amber'], t(' Discarded 156 platform(s) that')],
     [t("also 'find' a random nonexistent username")],
     'rule',
-    [t('Found '), ['0', 'green', { b: 1 }], t('/11988'), d('    Time 176.5s')],
+    [t('Found '), ['0', 'green', { b: 1 }], t('/11956'), d('    Time 290.5s')],
     'rule',
     null,
-    [['  RECORD ATTEMPT | Helix 3.6.0', 'bold', { b: 1 }]],
-    [d('  Started   '), t('2026-10-30T19:59:35+00:00')],
-    [d('  Finished  '), t('2026-10-30T20:02:31+00:00')],
-    [d('  Sites     '), t('11988 attempted')],
-    [d('            '), ['10436 answered', 'green']],
-    [d('            '), ['1552 no clear answer', 'amber']],
+    [['  RECORD ATTEMPT | Helix 4.0.0', 'bold', { b: 1 }]],
+    [d('  Started   '), t('2026-11-10T13:47:37+00:00')],
+    [d('  Finished  '), t('2026-11-10T13:52:27+00:00')],
+    [d('  Sites     '), t('11956 attempted')],
+    [d('            '), ['10663 answered', 'green']],
+    [d('            '), ['1293 no clear answer', 'amber']],
     [d('  Found     '), ['0', 'green', { b: 1 }], t(' accounts')],
     [d('FINGERPRINT')],
-    [t('  1865626625b7ab8076d8bb2a54dd53b7')],
-    [t('  2c717dd1dd67773ca95d11776196149d')],
+    [t('  18fe1e9284bac2d32f2c3a474d56be77')],
+    [t('  7f6e6a0a0f7f6f9a201b7d5af3059a61')],
   ] : [
-    [['$ ', 'dim'], ['helix-osint -u 4tj4jneu4byr --all --record-attempt', 'bold']],
+    [['$ ', 'dim'], ['helix-osint -u ofdsld3h2nwe --all --record-attempt', 'bold']],
     null,
-    [['Target   : ', 'dim'], ['@4tj4jneu4byr', 'cyan']],
-    [['Platforms: ', 'dim'], ['11988', 'cyan']],
-    [['Scanning @4tj4jneu4byr across 11988 platforms...', 'text']],
-    [['Re-checking 1560 site(s) that timed out on the fast pass...', 'text']],
-    [['[control]', 'amber'], [" Discarded 111 platform(s) that also 'find' a random", 'text']],
+    [['Target   : ', 'dim'], ['@ofdsld3h2nwe', 'cyan']],
+    [['Platforms: ', 'dim'], ['11956', 'cyan']],
+    [['Scanning @ofdsld3h2nwe across 11956 platforms...', 'text']],
+    [['[control]', 'amber'], [" Discarded 156 platform(s) that also 'find' a random", 'text']],
     [['          nonexistent username', 'text']],
     'rule',
-    [['Found ', 'text'], ['0', 'green', { b: 1 }], ['/11988', 'text'], ['    Cross-links 0    Time 176.5s', 'dim']],
+    [['Found ', 'text'], ['0', 'green', { b: 1 }], ['/11956', 'text'], ['    Cross-links 0    Time 290.5s', 'dim']],
     'rule',
     null,
-    [['  RECORD ATTEMPT | Helix 3.6.0 | @4tj4jneu4byr', 'bold', { b: 1 }]],
-    [['  Started   ', 'dim'], ['2026-10-30T19:59:35+00:00', 'text'], ['   Finished ', 'dim'], ['2026-10-30T20:02:31+00:00', 'text']],
-    [['  Sites     ', 'dim'], ['11988 attempted | ', 'text'], ['10436 answered', 'green'], [' | ', 'text'], ['1552 no clear answer', 'amber']],
-    [['  Found     ', 'dim'], ['0', 'green', { b: 1 }], [' accounts, each verified live against two impossible usernames', 'text']],
-    [['FINGERPRINT  ', 'dim'], ['1865626625b7ab8076d8bb2a54dd53b72c717dd1dd67773ca95d11776196149d', 'text']],
+    [['  RECORD ATTEMPT | Helix 4.0.0 | @ofdsld3h2nwe', 'bold', { b: 1 }]],
+    [['  Started   ', 'dim'], ['2026-11-10T13:47:37+00:00', 'text'], ['   Finished ', 'dim'], ['2026-11-10T13:52:27+00:00', 'text']],
+    [['  Sites     ', 'dim'], ['11956 attempted | ', 'text'], ['10663 answered', 'green'], [' | ', 'text'], ['1293 no clear answer', 'amber']],
+    [['  Found     ', 'dim'], ['0', 'green', { b: 1 }], [' accounts, each verified live against 3 made-up usernames', 'text']],
+    [['FINGERPRINT  ', 'dim'], ['18fe1e9284bac2d32f2c3a474d56be777f7e6a0a0f7f6f9a201b7d5af3059a61', 'text']],
   ];
   let y = PAD - 4, body = '';
   for (const r of rows) {
@@ -225,15 +222,15 @@ function run(p) {
     if (r === 'rule') body += `<rect x="${PAD}" y="${y - 10}" width="${W - PAD * 2}" height="1" fill="${p.dim}" opacity=".5"/>`;
     else if (r) body += line(p, r, PAD, y, S).svg;
   }
-  return frame(p, y + PAD, body, 'A real Helix 3.6.0 run: a made-up username checked on 11,988 sites, 0 accounts found, 176.5 seconds.');
+  return frame(p, y + PAD, body, 'A real Helix 4.0.0 run: a made-up username checked on 11,956 sites, 10,663 answered, 0 accounts found, 290.5 seconds.');
 }
 
 // ── end: the footer and the pager's (END) ────────────────────────────────
 function end(p) {
   const S = 14.5, H = 96;
-  const body = spread(p, 'thalha-a9', 'October 2026', 'THALHA(1)', 38, S)
+  const body = spread(p, 'thalha-a9', 'November 2026', 'THALHA(1)', 38, S)
     + line(p, [['(END)', 'text', { inv: 1 }]], PAD, 72, 13).svg;
-  return frame(p, H, body, 'thalha-a9, October 2026, THALHA(1). END');
+  return frame(p, H, body, 'thalha-a9, November 2026, THALHA(1). END');
 }
 
 for (const [layout, L] of Object.entries(layouts)) {
